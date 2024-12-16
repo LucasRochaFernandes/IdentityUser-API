@@ -1,8 +1,8 @@
 ﻿using AutoMapper;
-using IdentityUser.Api.Comunication.Requests;
-using IdentityUser.Api.Database.Entities;
+using UserIdentity.Api.Comunication.Requests;
+using UserIdentity.Api.Database.Entities;
 
-namespace IdentityUser.Api.Comunication.Profiles;
+namespace UserIdentity.Api.Comunication.Profiles;
 
 public class UserProfile : Profile
 {

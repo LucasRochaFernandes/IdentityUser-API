@@ -1,14 +1,31 @@
-﻿using IdentityUser.Api.Comunication.Requests;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using UserIdentity.Api.Comunication.Requests;
+using UserIdentity.Api.Services;
 
-namespace IdentityUser.Api.Controllers;
+namespace UserIdentity.Api.Controllers;
 [Route("api/[controller]")]
 [ApiController]
 public class UserController : ControllerBase
 {
-    [HttpPost]
-    public IActionResult RegisterUser([FromBody] RegisterUserRequest request)
+    private readonly RegisterUserService _registerUserService;
+
+    public UserController(RegisterUserService registerUserService)
     {
-        throw new NotImplementedException();
+        _registerUserService = registerUserService;
+    }
+
+    [HttpPost]
+    [ProducesResponseType(StatusCodes.Status201Created)]
+    public async Task<IActionResult> RegisterUser([FromBody] RegisterUserRequest request)
+    {
+
+        var result = await _registerUserService.Execute(request);
+
+        if (result.Succeeded) {
+            return Created(string.Empty, result);
+        } else
+        {
+            throw new Exception("Unable to register a user");
+        }
     }
 }

@@ -1,9 +1,10 @@
-﻿using IdentityUser.Api.Database.Entities;
+﻿using UserIdentity.Api.Database.Entities;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
-namespace IdentityUser.Api.Database;
+namespace UserIdentity.Api.Database;
 
-public class ApplicationDbContext : DbContext
+public class ApplicationDbContext : IdentityDbContext<User>
 {
     private readonly IConfiguration _configuration;
 

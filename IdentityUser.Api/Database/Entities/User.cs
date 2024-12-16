@@ -1,12 +1,11 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using Microsoft.AspNetCore.Identity;
 
-namespace IdentityUser.Api.Database.Entities;
+namespace UserIdentity.Api.Database.Entities;
 
-[Table("Users")]
-public class User
+public class User : IdentityUser
 {
-    public Guid Id { get; set; } = Guid.NewGuid();
-    public string UserName { get; set; }
-    public string Password { get; set; }
-    public DateOnly BirthDay{ get; set; }
+    public User()
+    {
+        
+    }
 }
