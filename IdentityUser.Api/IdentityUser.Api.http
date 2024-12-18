@@ -1,6 +1,11 @@
 @IdentityUser.Api_HostAddress = http://localhost:5227
 
-GET {{IdentityUser.Api_HostAddress}}/user/
+POST {{IdentityUser.Api_HostAddress}}/api/User/login
 Accept: application/json
+Content-Type: application/json
+{
+  "UserName": "User1",
+  "Password": "Senha123#"
+}
 
 ###
