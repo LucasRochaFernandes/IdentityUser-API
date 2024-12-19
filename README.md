@@ -1,29 +1,30 @@
-# Projeto ASP .NET com Implementação de Identity
 
-## Visão Geral
+# ASP .NET Project with Identity Implementation
 
-Este projeto utiliza **ASP.NET Core** para implementar autenticação e autorização de usuários com **Identity**. A autenticação é baseada em **tokens JWT**, protegendo rotas e garantindo a segurança da aplicação.
+## Overview
 
----
-
-## Funcionalidades
-
-- Cadastro e autenticação de usuários com **ASP.NET Identity**.
-- Geração de **tokens JWT** para proteger rotas.
-- Integração com banco de dados PostgreSQL via **Entity Framework Core**.
+This project uses **ASP.NET Core** to implement user authentication and authorization with **Identity**. Authentication is based on **JWT tokens**, securing routes and ensuring application safety.
 
 ---
 
-## Estrutura do Projeto
+## Features
 
-- **Controllers**: Controladores responsáveis pelos endpoints (ex.: `UserController.cs`).
-- **Services**: Contém a lógica de autenticação (`LogInService.cs`) e registro de usuários (`RegisterUserService.cs`).
-- **Database**: Gerencia entidades e contexto do banco de dados (`ApplicationDbContext.cs`).
-- **Docker**: Arquivo `docker-compose.yml` para criar o container PostgreSQL.
+- User registration and authentication with **ASP.NET Identity**.
+- Generation of **JWT tokens** to secure routes.
+- Integration with PostgreSQL database via **Entity Framework Core**.
 
 ---
 
-## Tecnologias
+## Project Structure
+
+- **Controllers**: Controllers responsible for API endpoints (e.g., `UserController.cs`).
+- **Services**: Contains the authentication logic (`LogInService.cs`) and user registration logic (`RegisterUserService.cs`).
+- **Database**: Manages entities and the database context (`ApplicationDbContext.cs`).
+- **Docker**: `docker-compose.yml` file to create the PostgreSQL container.
+
+---
+
+## Technologies
 
 - **ASP.NET Core**
 - **Entity Framework Core**
@@ -34,36 +35,36 @@ Este projeto utiliza **ASP.NET Core** para implementar autenticação e autorizaçã
 
 ---
 
-## Configuração e Execução
+## Setup and Execution
 
-1. **Banco de Dados**: Execute o comando abaixo para criar o container PostgreSQL:
+1. **Database**: Run the command below to create the PostgreSQL container:
    ```bash
    docker-compose up -d
    ```
-2. **Configuração**: Atualize a **Connection String** no `appsettings.json` com os dados do container.
-3. **Migrações**: Aplique as migrações:
+2. **Configuration**: Update the **Connection String** in `appsettings.json` with the container details.
+3. **Migrations**: Apply migrations:
    ```bash
    dotnet ef database update
    ```
-4. **Iniciar a API**: Execute a aplicação:
+4. **Start the API**: Run the application:
    ```bash
    dotnet run
    ```
 
 ---
 
-## Testando a API
+## Testing the API
 
-- **Cadastro de Usuário**: `POST /api/user/register`
+- **User Registration**: `POST /api/user/register`
 - **Login**: `POST /api/user/login`
-  - Gera um **token JWT** para acesso às rotas protegidas.
-- Use ferramentas como **Postman** ou o arquivo `IdentityUser.Api.http` para testar.
+  - Generates a **JWT token** for access to protected routes.
+- Use tools like **Postman** or the `IdentityUser.Api.http` file to test.
 
 ---
 
-## Melhorias Futuras
+## Future Improvements
 
-- Integração com provedores externos (Google, Facebook).
-- Políticas de autorização avançadas e roles específicas.
+- Integration with external providers (Google, Facebook).
+- Advanced authorization policies and specific user roles.
 
 ---
